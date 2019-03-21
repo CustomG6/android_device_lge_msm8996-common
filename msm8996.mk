@@ -130,6 +130,7 @@ PRODUCT_PACKAGES += \
     init.qcom.sensors.sh \
     init.qcom.usb.rc \
     init.target.rc \
+    init.spectrum.rc \
     ueventd.qcom.rc
 
 # Display
@@ -147,6 +148,10 @@ PRODUCT_PACKAGES += \
     memtrack.msm8996 \
     libdisplayconfig \
     libqdMetaData.system
+
+# LGE settings
+PRODUCT_PACKAGES += \
+    LGESettings
 
 # Doze mode
 PRODUCT_PACKAGES += \
@@ -334,9 +339,21 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sensors/hals.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/hals.conf
 
+<<<<<<< HEAD
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
+=======
+# Spectrum
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.spectrum.profile=0
+
+# Thermal
+PRODUCT_PACKAGES += \
+    thermal.msm8996 \
+    android.hardware.thermal@1.0-impl \
+    android.hardware.thermal@1.0-service
+>>>>>>> 08fa6b0a... Add LGE settings
 
 # TimeKeep
 PRODUCT_PACKAGES += \
