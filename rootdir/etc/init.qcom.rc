@@ -234,7 +234,6 @@ on boot
     # Create NETMGR daemon socket area
     mkdir /dev/socket/netmgr 0750 radio radio
 
-<<<<<<< HEAD
     # Display and LED permissions
     chown system system /sys/class/leds/red/blink
     chown system system /sys/class/leds/green/blink
@@ -242,19 +241,6 @@ on boot
 
     #Disable spectrum on boot
     setprop spectrum.support 0
-=======
-    setprop wifi.interface wlan0
-
-#   Define TCP buffer sizes for various networks
-#   ReadMin, ReadInitial, ReadMax, WriteMin, WriteInitial, WriteMax,
-    setprop net.tcp.buffersize.wifi    524288,2097152,4194304,262144,524288,1048576
-
-
-    setprop ro.telephony.call_ring.multiple false
-
-    #enable camera read sensors data
-    setprop persist.camera.gyro.disable 0
->>>>>>> a34c6eb1... msm8996-common: Disable spectrum profiles
 
     chmod 0444 /sys/devices/platform/msm_hsusb/gadget/usb_state
 
