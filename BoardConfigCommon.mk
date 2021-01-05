@@ -54,6 +54,7 @@ BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_TAGS_OFFSET := 0x02000000
 BOARD_RAMDISK_OFFSET := 0x02200000
 TARGET_KERNEL_SOURCE := kernel/lge/msm8996
+BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 
 # Audio
 BOARD_USES_ALSA_AUDIO := true
@@ -115,9 +116,6 @@ TARGET_LD_SHIM_LIBS := \
     /system/vendor/lib/libmmcamera_ppeiscore.so|/system/vendor/lib/libshim_camera.so
 USE_CAMERA_STUB := true
 USE_DEVICE_SPECIFIC_CAMERA := true
-
-# CMHW
-BOARD_HARDWARE_CLASS += $(COMMON_PATH)/lineagehw
 
 # CNE and DPM
 BOARD_USES_QCNE := true

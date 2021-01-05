@@ -148,7 +148,7 @@ PRODUCT_PACKAGES += \
     libqdMetaData.system
 
 # Doze mode
-PRODUCT_PACKAGES += \
+# PRODUCT_PACKAGES += \
     LGDoze
 
 # DRM
@@ -166,7 +166,7 @@ PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0-service
 
 # Gesture handler
-PRODUCT_PACKAGES += \
+# PRODUCT_PACKAGES += \
     GestureHandler
 
 # GMS
@@ -235,7 +235,7 @@ PRODUCT_PACKAGES += \
     android.hardware.keymaster@3.0-service
 
 # LiveDisplay
-PRODUCT_PACKAGES += \
+# PRODUCT_PACKAGES += \
     vendor.lineage.livedisplay@2.0-service-sdm
 
 # Media
