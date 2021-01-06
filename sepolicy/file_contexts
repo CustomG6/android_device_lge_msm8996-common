@@ -16,9 +16,9 @@
 /dev/block/platform/soc/624000\.ufshc/by-name/encrypt               u:object_r:metadata_block_device:s0
 
 # Fingerprint
-/(vendor|system/vendor)/bin/fpc_early_loader                        u:object_r:fpc_early_loader_exec:s0
 /sys/devices/soc/75b7000\.spi/spi_master/spi8/spi8\.1(/.*)?         u:object_r:sysfs_devices_fingerprint:s0
 /sys/devices/soc/75ba000\.spi/spi_master/spi12/spi12\.[0-1](/.*)?   u:object_r:sysfs_devices_fingerprint:s0
+/sys/devices/virtual/input/lge_fingerprint/device_prepare           u:object_r:sysfs_lge_fingerprint_prepare:s0
 
 # Firmware
 /firmware(/.*)?                                                     u:object_r:firmware_file:s0
@@ -106,6 +106,9 @@
 
 # SPI
 /sys/bus/spi/devices                                                u:object_r:sysfs_spi:s0
+
+# Sysnode
+/system/vendor/bin/hw/vendor.lge.hardware.sysnode@1.0-service       u:object_r:vendor_file:s0
 
 # WLAN
 /sys/module/bcmdhd/parameters/firmware_path                         u:object_r:sysfs_wlan_fwpath:s0

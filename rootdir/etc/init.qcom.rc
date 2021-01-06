@@ -331,6 +331,7 @@ on boot
     chown system input /sys/devices/virtual/input/lge_fingerprint/qup_id
     chown system input /sys/devices/virtual/input/lge_fingerprint/waitfinger
     chown system input /sys/devices/virtual/input/lge_fingerprint/spi_prepare
+    chown system input /sys/devices/virtual/input/lge_fingerprint/proximity_state
     chmod 0660 /sys/devices/virtual/input/lge_fingerprint/testmode
     chmod 0660 /sys/devices/virtual/input/lge_fingerprint/spitest
     chmod 0660 /sys/devices/virtual/input/lge_fingerprint/zonetest
@@ -340,16 +341,18 @@ on boot
     chmod 0660 /sys/devices/virtual/input/lge_fingerprint/qup_id
     chmod 0220 /sys/devices/virtual/input/lge_fingerprint/waitfinger
     chmod 0660 /sys/devices/virtual/input/lge_fingerprint/spi_prepare
-    chown system input /sys/bus/spi/devices/spi8.1/bus_lock
-    chown system input /sys/bus/spi/devices/spi8.1/clk_enable
-    chown system input /sys/bus/spi/devices/spi8.1/fabric_vote
-    chown system input /sys/bus/spi/devices/spi8.1/hw_reset
-    chown system input /sys/bus/spi/devices/spi8.1/irq
-    chown system input /sys/bus/spi/devices/spi8.1/pinctl_set
-    chown system input /sys/bus/spi/devices/spi8.1/spi_prepare
-    chown system input /sys/bus/spi/devices/spi8.1/spi_owner
-    chown system input /sys/bus/spi/devices/spi8.1/regulator_enable
-    chown system input /sys/bus/spi/devices/spi8.1/wakeup_enable
+    chmod 0660 /sys/devices/virtual/input/lge_fingerprint/proximity_state
+    # FPC device permission
+    chown system input /sys/devices/virtual/input/lge_fingerprint/bus_lock
+    chown system input /sys/devices/virtual/input/lge_fingerprint/clk_enable
+    chown system input /sys/devices/virtual/input/lge_fingerprint/fabric_vote
+    chown system input /sys/devices/virtual/input/lge_fingerprint/hw_reset
+    chown system input /sys/devices/virtual/input/lge_fingerprint/irq
+    chown system input /sys/devices/virtual/input/lge_fingerprint/pinctl_set
+    chown system input /sys/devices/virtual/input/lge_fingerprint/spi_prepare
+    chown system input /sys/devices/virtual/input/lge_fingerprint/spi_owner
+    chown system input /sys/devices/virtual/input/lge_fingerprint/regulator_enable
+    chown system input /sys/devices/virtual/input/lge_fingerprint/wakeup_enable
 
     write /proc/sys/net/core/netdev_max_backlog 5000
 
@@ -590,6 +593,12 @@ on post-fs-data
     # Thermal Daemon
     chown system system /sys/class/leds/lcd-backlight/thermald_status
     chmod 0644 /sys/class/leds/lcd-backlight/thermald_status
+
+    #fingerint, changhua add for fp debug image usage,feature default off
+    mkdir /data/fpc_images 0770 system system
+    mkdir /data/fpc_images/verify 0770 system system
+    mkdir /data/fpc_images/enroll 0770 system system
+    mkdir /data/fpc 0770 system system
 
 service ssr_setup /system/bin/ssr_setup
     oneshot
@@ -890,13 +899,6 @@ service vendor.msm_irqbalance /vendor/bin/msm_irqbalance -f /vendor/etc/msm_irqb
     user root
     group root
     writepid /dev/cpuset/system-background/tasks
-
-# oneshot service that loads fpc tz app in early phase.
-service fpc_early_loader /vendor/bin/fpc_early_loader
-    class late_start
-    user system
-    group system
-    oneshot
 
 on configure-cpuset
     # Update foreground and background cpusets
