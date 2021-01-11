@@ -321,39 +321,6 @@ on boot
     chown system system /sys/class/timed_output/vibrator/amp
     chmod 664 /sys/class/timed_output/vibrator/amp
 
-    # Fingerprints
-    chown system input /sys/devices/virtual/input/lge_fingerprint/testmode
-    chown system input /sys/devices/virtual/input/lge_fingerprint/spitest
-    chown system input /sys/devices/virtual/input/lge_fingerprint/zonetest
-    chown system input /sys/devices/virtual/input/lge_fingerprint/checkerbdtest
-    chown system input /sys/devices/virtual/input/lge_fingerprint/rubbertest
-    chown system input /sys/devices/virtual/input/lge_fingerprint/intstatus
-    chown system input /sys/devices/virtual/input/lge_fingerprint/qup_id
-    chown system input /sys/devices/virtual/input/lge_fingerprint/waitfinger
-    chown system input /sys/devices/virtual/input/lge_fingerprint/spi_prepare
-    chown system input /sys/devices/virtual/input/lge_fingerprint/proximity_state
-    chmod 0660 /sys/devices/virtual/input/lge_fingerprint/testmode
-    chmod 0660 /sys/devices/virtual/input/lge_fingerprint/spitest
-    chmod 0660 /sys/devices/virtual/input/lge_fingerprint/zonetest
-    chmod 0660 /sys/devices/virtual/input/lge_fingerprint/checkerbdtest
-    chmod 0660 /sys/devices/virtual/input/lge_fingerprint/rubbertest
-    chmod 0440 /sys/devices/virtual/input/lge_fingerprint/intstatus
-    chmod 0660 /sys/devices/virtual/input/lge_fingerprint/qup_id
-    chmod 0220 /sys/devices/virtual/input/lge_fingerprint/waitfinger
-    chmod 0660 /sys/devices/virtual/input/lge_fingerprint/spi_prepare
-    chmod 0660 /sys/devices/virtual/input/lge_fingerprint/proximity_state
-    # FPC device permission
-    chown system input /sys/devices/virtual/input/lge_fingerprint/bus_lock
-    chown system input /sys/devices/virtual/input/lge_fingerprint/clk_enable
-    chown system input /sys/devices/virtual/input/lge_fingerprint/fabric_vote
-    chown system input /sys/devices/virtual/input/lge_fingerprint/hw_reset
-    chown system input /sys/devices/virtual/input/lge_fingerprint/irq
-    chown system input /sys/devices/virtual/input/lge_fingerprint/pinctl_set
-    chown system input /sys/devices/virtual/input/lge_fingerprint/spi_prepare
-    chown system input /sys/devices/virtual/input/lge_fingerprint/spi_owner
-    chown system input /sys/devices/virtual/input/lge_fingerprint/regulator_enable
-    chown system input /sys/devices/virtual/input/lge_fingerprint/wakeup_enable
-
     write /proc/sys/net/core/netdev_max_backlog 5000
 
 service vendor.conn_init /vendor/bin/hwaddrs
@@ -378,7 +345,6 @@ on post-fs
     chown system system /dev/lge_dm_tty0
 
     mkdir /sns/cal/ 0755 system system
-    mkdir /sns/fingerprint/ 0775 system system
 
 # MSM specific files that need to be created on /data
 on post-fs-data
@@ -395,12 +361,6 @@ on post-fs-data
 
     # Create directory used for camera
     mkdir /data/vendor/camera 0770 camera camera
-
-    #Create directories for Fingerprint
-    mkdir /data/vendor/misc/qti_fp 0770 system system
-    mkdir /data/vendor/misc/qti_fp/bg_estimation 0770 system system
-    mkdir /data/vendor/misc/qti_fp/calib_test 0770 system system
-    mkdir /data/vendor/misc/qti_fp/database 0770 system system
 
     # create QDMA dropbox
     mkdir /data/vendor/qdmastats 0700 system system
