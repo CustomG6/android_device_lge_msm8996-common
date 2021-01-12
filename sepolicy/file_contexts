@@ -102,7 +102,8 @@
 /sns                                                                u:object_r:sensors_data_file:s0
 /sns/cal(/.*)?                                                      u:object_r:sensors_data_file:s0
 /persist-lg/sensors(/.*)?                                           u:object_r:sensors_persist_file:s0
-/sns/(/.*)?                                                         u:object_r:sensors_persist_file:s0
+/mnt/vendor/sns/cal(/.*)?                                           u:object_r:sensors_data_file:s0
+/mnt/vendor/sns/cal/sns.reg                                         u:object_r:sensors_data_file:s0
 
 # SPI
 /sys/bus/spi/devices                                                u:object_r:sysfs_spi:s0
@@ -129,7 +130,7 @@
 /data/system/perfd(/.*)?                                            u:object_r:perfd_data_file:s0
 
 # CND
-/data/connectivity(/.*)?              u:object_r:cnd_core_data_file:s0
+/data/connectivity(/.*)?                                            u:object_r:cnd_core_data_file:s0
 
 # sysfs_ssr
 /sys/devices/soc/[0-9a-f]+\.qcom,lpass/subsys[0-9]+/name           u:object_r:sysfs_ssr:s0
