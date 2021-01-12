@@ -11,7 +11,7 @@ get_prop(system_app, cnd_vendor_prop)
 
 set_prop(system_app, camera_prop)
 
-allow system_app default_android_service:service_manager { find add read };
+allow system_app default_android_service:service_manager { find add };
 allow system_app default_prop:property_service set;
 allow system_app sysfs_zram:dir search;
 allow system_app netd:binder call;
