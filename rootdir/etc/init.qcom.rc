@@ -53,6 +53,17 @@ on init
     write /proc/sys/kernel/panic_on_oops 1
     write /proc/sys/vm/max_map_count 1000000
 
+    # add a cpuset for the camera daemon
+    # we want all cores for camera
+    mkdir /dev/cpuset/camera-daemon
+    write /dev/cpuset/camera-daemon/cpus 0-3
+    write /dev/cpuset/camera-daemon/mems 0
+    chown system system /dev/cpuset/camera-daemon
+    chown system system /dev/cpuset/camera-daemon/tasks
+    chmod 0664 /dev/cpuset/camera-daemon/tasks
+
+    mkdir /mnt/vendor/sns 0755 system system
+
     # Create cgroup mount point for memory
     mkdir /sys/fs/cgroup/memory/bg 0750 root system
     write /sys/fs/cgroup/memory/bg/memory.swappiness 140
@@ -113,7 +124,13 @@ on init
 on post-fs
     chmod 0755 /sys/kernel/debug/tracing
 
+    chown system system /mnt/vendor/sns
+    chmod 0755 /mnt/vendor/sns
+    restorecon_recursive /mnt/vendor/sns
+
 on early-boot
+    chown system system /mnt/vendor/persist/sensors/gyro_sensitity_cal
+
     # Set RLIMIT_MEMLOCK to 64MB
     setrlimit 8 67108864 67108864
 
@@ -133,9 +150,43 @@ on early-boot
     write /sys/kernel/boot_slpi/boot 1
     start vendor.graphics-sh
 
+    # for backward compatibility
+    chown system system /persist/sensors
+    chown system system /persist/sensors/registry
+    chown system system /persist/sensors/registry/registry
+    chown system system /persist/sensors/registry/registry/sensors_registry
+    chown system system /persist/sensors/sensors_settings
+    chown system system /persist/sensors/registry/config
+    chmod 0664 /persist/sensors/sensors_settings
+
+    chown system system /mnt/vendor/persist/sensors
+    chown system system /mnt/vendor/persist/sensors/sns.reg
+    chown system system /mnt/vendor/persist/sensors/sensors_list.txt
+    chown system system /mnt/vendor/persist/sensors/registry
+    chown system system /mnt/vendor/persist/sensors/registry/registry
+    chown system system /mnt/vendor/persist/sensors/registry/registry/sensors_registry
+    chown system system /mnt/vendor/persist/sensors/sensors_settings
+    chown system system /mnt/vendor/persist/sensors/registry/sns_reg_config
+    chown system system /mnt/vendor/persist/sensors/registry/sns_reg_version
+    chown system system /mnt/vendor/persist/sensors/registry/config
+    chmod 0664 /mnt/vendor/persist/sensors/sensors_settings
+
 on boot
     # Bring up CPUs
     start vendor.power-sh
+
+    #enable camera read sensors data
+    setprop persist.camera.gyro.disable 0
+
+    # Allow access to sensors device attributes
+    chown system system /sys/class/sensors/MPU6050-accel/enable
+    chown system system /sys/class/sensors/MPU6050-accel/poll_delay
+    chown system system /sys/class/sensors/MPU6050-gyro/enable
+    chown system system /sys/class/sensors/MPU6050-gyro/poll_delay
+    chown system system /sys/class/sensors/apds9930-light/enable
+    chown system system /sys/class/sensors/apds9930-light/poll_delay
+    chown system system /sys/class/sensors/apds9930-proximity/enable
+    chown system system /sys/class/sensors/apds9930-proximity/poll_delay
 
     # Set permissions by node reads by dumpstate
     chmod 0644 /sys/devices/system/cpu/present
@@ -559,6 +610,32 @@ on post-fs-data
     mkdir /data/fpc_images/verify 0770 system system
     mkdir /data/fpc_images/enroll 0770 system system
     mkdir /data/fpc 0770 system system
+
+    #Create camera dir for EEPROM data
+    mkdir mnt/vendor/persist-lg/camera 0771 cameraserver radio
+
+    #Create folder of camera
+    mkdir /data/misc/camera 0770 camera camera
+    mkdir /etc/camera 0770 camera camera
+
+    # SSC/SLPI sensors
+    mkdir /mnt/vendor/persist/sensors 0775 root system
+    chown root system /mnt/vendor/persist/sensors/sensors_settings
+    chmod 0664 /mnt/vendor/persist/sensors/sensors_settings
+    chown root system /mnt/vendor/persist/sensors/sns.reg
+    chmod 0664 /mnt/vendor/persist/sensors/sns.reg
+
+    chown root system /sns/cal/sns.reg
+    chmod 0664 /sns/cal/sns.reg
+
+    # /dev/sensors only supports an ioctl to get the current SLPI timestamp;
+    # allow the sensors daemon to perform this as non-root
+    chown root system /dev/sensors
+    chmod 0660 /dev/sensors
+
+    mkdir /mnt/vendor/sns/cal/ 0755 system system
+    chown system system /mnt/vendor/sns/cal/sns.reg
+    chown system system /mnt/vendor/sns/cal/cal_data.txt
 
 service ssr_setup /system/bin/ssr_setup
     oneshot
