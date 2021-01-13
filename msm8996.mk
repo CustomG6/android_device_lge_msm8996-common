@@ -148,7 +148,7 @@ PRODUCT_PACKAGES += \
     libqdMetaData.system
 
 # Doze mode
-# PRODUCT_PACKAGES += \
+PRODUCT_PACKAGES += \
     LGDoze
 
 # DRM
@@ -166,7 +166,7 @@ PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0-service
 
 # Gesture handler
-# PRODUCT_PACKAGES += \
+PRODUCT_PACKAGES += \
     GestureHandler
 
 # GMS
@@ -255,7 +255,7 @@ PRODUCT_PACKAGES += \
     netutils-wrapper-1.0
 
 # NFC
-#PRODUCT_PACKAGES += \
+PRODUCT_PACKAGES += \
     com.android.nfc_extras \
     NfcNci \
     Tag \
