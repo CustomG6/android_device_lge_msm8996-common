@@ -114,13 +114,6 @@ on init
     chown system system /dev/cpuset/application/background/tasks
     chmod 0660 /dev/cpuset/application/background/tasks
 
-    # set default schedTune value for foreground/top-app (only affects EAS)
-    write /dev/stune/foreground/schedtune.prefer_idle 1
-    write /dev/stune/top-app/schedtune.boost 10
-    write /dev/stune/top-app/schedtune.prefer_idle 1
-    write /dev/stune/rt/schedtune.boost 30
-    write /dev/stune/rt/schedtune.prefer_idle 1
-
 on post-fs
     chmod 0755 /sys/kernel/debug/tracing
 
@@ -191,14 +184,6 @@ on boot
     # Set permissions by node reads by dumpstate
     chmod 0644 /sys/devices/system/cpu/present
     chmod 0644 /sys/devices/system/cpu/online
-
-    # set default schedTune value for foreground/top-app (only affects EAS)
-    write /dev/stune/foreground/schedtune.prefer_idle 1
-    write /dev/stune/top-app/schedtune.boost 0
-    write /dev/stune/top-app/schedtune.prefer_idle 1
-
-    # Enable sched boost
-    write /proc/sys/kernel/sched_boost 1
 
     # Wifi firmware reload path
     chown wifi wifi /sys/module/bcmdhd/parameters/firmware_path
@@ -982,7 +967,6 @@ on configure-cpuset
    
 on property:sys.boot_completed=1
     # Disable boosting
-    write /proc/sys/kernel/sched_boost 0
     trigger configure-cpuset
     # Set BFQ I/O scheduler
     setprop sys.io.scheduler "bfq"

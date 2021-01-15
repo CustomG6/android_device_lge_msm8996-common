@@ -75,6 +75,12 @@ etc/firmware/leia_pm4_470.fw:vendor/firmware/leia_pm4_470.fw
 # NFC firmware
 vendor/firmware/libpn548ad_fw.so:vendor/lib/libpn548ad_fw.so
 
+# Power - from V30B
+vendor/bin/hw/android.hardware.power@1.2-service
+vendor/etc/init/android.hardware.power@1.2-service.rc
+vendor/lib/hw/power.default.so:vendor/lib/hw/power.msm8996.so
+vendor/lib64/hw/power.default.so:vendor/lib64/hw/power.msm8996.so
+
 # Radio firmware
 vendor/firmware/image/modem_pr/mcfg/configs/mcfg_hw/generic/common/default/default/mcfg_hw.mbn|58df6d1657b77154cc3504220727d936df4a35dc
 vendor/firmware/image/modem_pr/mcfg/configs/mcfg_hw/generic/common/mdm9x45/ss/mcfg_hw.mbn|75ee9f6b2f499f1b868df1f0051377f12b3ff8ad
@@ -92,7 +98,7 @@ vendor/firmware/image/modem_pr/mcfg/configs/mcfg_sw/generic/na/tmo/commerci/mcfg
 vendor/firmware/image/modem_pr/mcfg/configs/mcfg_sw/generic/na/verizon/cdmaless/mcfg_sw.mbn|2b5341e1444991267317218e02b81fe5580bdea6
 vendor/firmware/image/modem_pr/mcfg/configs/mcfg_sw/generic/na/verizon/hvolte/mcfg_sw.mbn|9253d2970e4dc6456b538a0be729b4487da2c6f6
 
-# Sensors
+# Sensors - from V30B
 vendor/lib/libsensor_lge_cal.so
 vendor/lib64/libsensor_lge_cal.so
 
