@@ -259,7 +259,7 @@
     <bool name="config_displayBlanksAfterDoze">true</bool>
 
     <!-- If true, the display will be shifted around in ambient mode. -->
-    <bool name="config_enableBurnInProtection">false</bool>
+    <bool name="config_enableBurnInProtection">true</bool>
 
     <!-- True if the display hardware only has brightness buckets rather than a full range of
          backlight values -->
