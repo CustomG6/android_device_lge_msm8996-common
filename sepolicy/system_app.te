@@ -15,3 +15,7 @@ allow system_app default_android_service:service_manager { find add };
 allow system_app default_prop:property_service set;
 allow system_app sysfs_zram:dir search;
 allow system_app netd:binder call;
+
+allow system_app sysfs:file { write };
+allow system_app proc_pagetypeinfo:file { read open getattr };
+allow system_app sysfs_zram:file { read open getattr };
