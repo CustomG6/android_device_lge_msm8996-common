@@ -17,4 +17,3 @@ type sysfs_spi, fs_type, sysfs_type;
 type camera_socket, file_type, core_data_file_type, data_file_type;
 type wcnss_prop, property_type;
 type cnd_core_data_file, file_type, core_data_file_type, data_file_type;
-type sysfs_fps, sysfs_type, fs_type;

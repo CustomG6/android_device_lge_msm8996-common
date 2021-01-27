@@ -24,9 +24,6 @@
 /firmware(/.*)?                                                     u:object_r:firmware_file:s0
 /(vendor|system/vendor)/firmware/image/modem_pr(/.*)?               u:object_r:firmware_file:s0
 
-# FPS Info
-/sys/devices/virtual/graphics/fb0/measured_fps                      u:object_r:sysfs_fps:
-
 # FRP partition
 /dev/block/platform/soc/624000\.ufshc/by-name/persistent            u:object_r:frp_block_device:s0
 
