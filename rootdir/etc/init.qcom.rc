@@ -966,12 +966,14 @@ on configure-cpuset
     write /dev/cpuset/application/cpus 1,3
    
 on property:sys.boot_completed=1
-    # Disable boosting
-    trigger configure-cpuset
-    # Set BFQ I/O scheduler
-    setprop sys.io.scheduler "bfq"
-    # Set idle GPU to 133 Mhz
-    write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 6
+#Set GPU Opengles version
+on property:vendor.opengles.version=*
+    setprop ro.opengles.version ${vendor.opengles.version}
+
+#Set gpu available frequencies property
+on property:vendor.gpu.available_frequencies=*
+    setprop ro.vendor.gpu.available_frequencies ${vendor.gpu.available_frequencies}
+
 
 on property:init.svc.media=restarting
     restart vendor.qcamerasvr
