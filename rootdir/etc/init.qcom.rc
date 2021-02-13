@@ -310,6 +310,9 @@ on boot
     chmod 664 /sys/devices/virtual/input/lge_touch/onhand
     chown system radio /sys/devices/virtual/input/lge_touch/tap2wake
     chmod 664 /sys/devices/virtual/input/lge_touch/tap2wake
+    chown system input /sys/devices/virtual/input/lge_fingerprint/proximity_state
+    chmod 0660 /sys/devices/virtual/input/lge_fingerprint/proximity_state
+
 
     # External Display Watch
     chown system system /sys/devices/virtual/ext_watch/config_fontonoff
