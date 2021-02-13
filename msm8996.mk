@@ -152,10 +152,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     LGDoze
 
-# Pocket Mode
-PRODUCT_PACKAGES += \
-    OneplusPocketMode
-
 # DRM
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-impl \
@@ -240,7 +236,7 @@ PRODUCT_PACKAGES += \
     android.hardware.keymaster@3.0-service
 
 # LGE settings
-PRODUCT_PACKAGES += \
+#PRODUCT_PACKAGES += \
     LGESettings
 
 # LiveDisplay
