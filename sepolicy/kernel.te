@@ -1,1 +1,2 @@
 allow kernel priv_app:process setsched;
+allow kernel misc_block_device:blk_file { read open write };

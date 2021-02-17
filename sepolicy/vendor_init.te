@@ -32,3 +32,4 @@ domain_auto_trans(vendor_init, vendor_toolbox_exec, vendor_init)
 allow vendor_init unlabeled:{ dir file } { getattr relabelfrom };
 allow vendor_init unlabeled:dir search;
 allow vendor_init device:file { create write };
+allow vendor_init block_device:blk_file { read open };

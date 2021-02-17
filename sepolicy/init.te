@@ -15,3 +15,6 @@ allow init property_socket:property_service set;
 
 #allow init firmware_file:dir { create_dir_perms setattr };
 #allow firmware_file rootfs:filesystem associate;
+
+allow init sysfs:dir create;
+allow init hwservicemanager:binder { call transfer };

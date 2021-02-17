@@ -11,3 +11,6 @@ allow system_server sysfs_vibrator:file { read write append };
 get_prop(system_server, vendor_camera_prop);
 
 allow system_server init:binder { call };
+
+# Smart charging
+allow system_server sysfs_battery_supply:file { getattr open read write };
