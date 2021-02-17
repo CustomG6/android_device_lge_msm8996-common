@@ -124,7 +124,6 @@ vendor/lib/libStDrvInt.so
 vendor/lib/libqisl.so
 vendor/lib/librpmb.so
 vendor/lib/libssd.so
-vendor/lib64/lib-sec-disp.so
 vendor/lib64/libGPreqcancel.so
 vendor/lib64/libGPreqcancel_svc.so
 vendor/lib64/libQSEEComAPI.so
@@ -520,10 +519,19 @@ vendor/lib64/libthermalioctl.so
 vendor/lib64/libtime_genoff.so|e2cef32a79f754b5a17012137cf39f53cd6e3f69
 vendor/lib/libtime_genoff.so|24f6064818bc53c5ea17a3608766e3cc1e889f64
 
-# Widevine
-vendor/lib/libWVStreamControlAPI_L3.so
-vendor/lib/libwvdrm_L3.so
-vendor/lib/mediadrm/libwvdrmengine.so
+# DRM - Qualcomm Trusted Execution Enviornment
+lib/vendor.qti.hardware.qteeconnector@1.0.so
+lib64/vendor.qti.hardware.qteeconnector@1.0.so
+vendor/bin/hw/vendor.qti.hardware.qteeconnector@1.0-service
+vendor/etc/init/vendor.qti.hardware.qteeconnector@1.0-service.rc
+vendor/lib/hw/vendor.qti.hardware.qteeconnector@1.0-impl.so
+vendor/lib/vendor.qti.hardware.qteeconnector@1.0_vendor.so
+vendor/lib64/hw/vendor.qti.hardware.qteeconnector@1.0-impl.so
+vendor/lib64/vendor.qti.hardware.qteeconnector@1.0_vendor.so
+
+# DRM (Widevine) - from daisy - daisy_sprout:10/QKQ1.191002.002/V11.0.7.0.QDLMIXM
+vendor/bin/hw/android.hardware.drm@1.2-service.widevine|e130b8f1c8d46d8a185b00cba5ff8a2a871ee94c
+vendor/etc/init/android.hardware.drm@1.2-service.widevine.rc|f206aecdd6843795f6
 
 # WiFi Display -- From: OnePlus/OnePlus3/OnePlus3:9/PKQ1.181203.001/1906252002:user/release-keys
 bin/wfdservice
