@@ -36,6 +36,13 @@ on charger
     write /sys/devices/system/cpu/cpu3/online 0
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "userspace"
     write /sys/module/lpm_levels/parameters/sleep_disabled 0
+    start vendor.hvdcp_opti
+    
+on property:persist.usb.hvdcp.detect=true
+    start hvdcp
+
+on property:persist.usb.hvdcp.detect=false
+    stop hvdcp
 
 service charger /system/bin/charger
     class charger
@@ -44,6 +51,11 @@ service charger /system/bin/charger
     capabilities SYS_BOOT
     critical
     seclabel u:r:charger:s0
+
+service vendor.hvdcp_opti /system/vendor/bin/hvdcp_opti
+    class main
+    user root
+    group system wakelock
 
 on early-init
     chown root system /dev/kmsg
@@ -167,6 +179,9 @@ on early-boot
 on boot
     # Bring up CPUs
     start vendor.power-sh
+
+    # Create hvdcp_opti directory
+    mkdir /mnt/vendor/persist/hvdcp_opti 0770 root system
 
     #enable camera read sensors data
     setprop persist.camera.gyro.disable 0
