@@ -29,9 +29,6 @@
 
     <!-- Display -->
     <string name="graphics_title">Pantalla</string>
-    <string name="device_doze_title">Pantalla ambiente</string>
-
-    <string name="dlm_mode_title">Luz de día</string>
 
     <!-- AOD -->
 

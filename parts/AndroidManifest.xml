@@ -77,17 +77,7 @@
                 <action android:name="oneplus.intent.action.GESTURE_CAMERA" />
             </intent-filter>
         </receiver>
-
-        <service
-            android:name="com.lge.settings.device.DLMModeTileService"
-            android:icon="@drawable/ic_dlm_tile"
-            android:label="@string/dlm_mode_title"
-            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
-            <intent-filter>
-                <action
-                    android:name="android.service.quicksettings.action.QS_TILE"/>
-            </intent-filter>
-        </service>
+        
     </application>
 
 </manifest>

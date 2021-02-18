@@ -12,7 +12,6 @@
 
     <!-- Display -->
     <string name="graphics_title">Wyświetlacz</string>
-    <string name="dlm_mode_title">Tryb dzienny</string>
 
     <!-- Kcal -->
     <string name="kcal_title">Wyświetlane kolory</string>

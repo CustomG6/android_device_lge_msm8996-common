@@ -41,7 +41,6 @@ public class DeviceSettings extends NodePreferenceActivity {
 	private EditTextPreference cyclePreference;
     private EditTextPreference tempPreference;
     private EditTextPreference healthPreference;
-    private SwitchPreference mDaylightModeSwitch;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -64,11 +63,6 @@ public class DeviceSettings extends NodePreferenceActivity {
         cyclePreference.setSummary(Battery.getBatteryCycle());
         tempPreference.setSummary(Battery.getBatteryTemp()+"°C");
         healthPreference.setSummary(Battery.getBatteryHealth());
-
-        mDaylightModeSwitch = (SwitchPreference) findPreference(Constants.KEY_DLM_SWITCH);
-        mDaylightModeSwitch.setEnabled(DaylightModeSwitch.isSupported());
-        mDaylightModeSwitch.setChecked(DaylightModeSwitch.isCurrentlyEnabled(this));
-        mDaylightModeSwitch.setOnPreferenceChangeListener(new DaylightModeSwitch());
     }
 
     @Override
