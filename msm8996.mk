@@ -148,6 +148,13 @@ PRODUCT_PACKAGES += \
     libdisplayconfig \
     libqdMetaData.system
 
+# LGE settings
+PRODUCT_PACKAGES += \
+    LGESettings
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/custom_apps_whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/custom_apps_whitelist.xml
+
 # Doze mode
 PRODUCT_PACKAGES += \
     LGDoze
@@ -337,6 +344,12 @@ PRODUCT_COPY_FILES += \
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
+
+# Thermal
+PRODUCT_PACKAGES += \
+    thermal.msm8996 \
+    android.hardware.thermal@1.0-impl \
+    android.hardware.thermal@1.0-service
 
 # TimeKeep
 PRODUCT_PACKAGES += \
