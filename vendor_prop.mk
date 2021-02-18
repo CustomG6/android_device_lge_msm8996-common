@@ -55,9 +55,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Charger
 PRODUCT_PRODUCT_PROPERTIES += \
-    ro.charger.disable_init_blank=true \
-    ro.charger.enable_suspend=false
-
+    ro.charger.enable_suspend=false \
+    persist.vendor.hvdcp.allow_opti=1
 # CNE and DPM
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.cne.feature=1 \

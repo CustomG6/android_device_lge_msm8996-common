@@ -1,0 +1,1 @@
+allow priv_app hvdcp_opti_prop:file read;
