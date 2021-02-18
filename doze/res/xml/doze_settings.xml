@@ -14,108 +14,49 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<PreferenceScreen
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:settings="http://schemas.android.com/apk/res-auto">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+                  xmlns:cm="http://schemas.android.com/apk/res/cyanogenmod.platform">
 
     <PreferenceCategory
-        android:key="doze_elements"
-        android:title="@string/doze_elements_title" >
+        android:key="tilt_sensor"
+        android:title="@string/tilt_sensor_title" >
 
-        <com.havoc.support.preferences.SystemSettingSwitchPreference
-            android:key="ambient_battery_percent"
-            android:title="@string/ambient_battery_percent_title"
-            android:summary="@string/ambient_battery_percent_summary"
-            android:defaultValue="true" />
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:key="doze_trigger_key"
-        android:title="@string/doze_trigger_title" >
-
-        <com.havoc.support.preferences.SwitchPreference
-            android:key="always_on_ambient"
-            android:defaultValue="false"
-            android:title="@string/aod_setting_title"
-            android:summary="@string/aod_setting_summary" />
-
-        <com.havoc.support.preferences.SecureSettingSwitchPreference
-            android:key="doze_on_charge"
-            android:defaultValue="false"
-            android:title="@string/doze_on_charge_title"
-            android:summary="@string/doze_on_charge_summary" />
-
-        <com.havoc.support.preferences.SwitchPreference
-            android:key="ambient_display"
-            android:defaultValue="true"
-            android:title="@string/ambient_display_notifications"
-            android:summary="@string/ambient_display_summary" />
-
-        <com.havoc.support.preferences.SystemSettingSwitchPreference
-            android:key="pulse_on_new_tracks"
-            android:defaultValue="true"
-            android:title="@string/pulse_on_new_tracks_title"
-            android:summary="@string/pulse_on_new_tracks_summary" />
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:key="gestures"
-        android:title="@string/gestures_title" >
-
-        <com.havoc.support.preferences.SystemSettingSwitchPreference
-            android:key="doze_trigger_doubletap"
-            android:defaultValue="false"
-            android:title="@string/doze_double_tap_title"
-            android:summary="@string/doze_double_tap_summary" />
-
-        <com.havoc.support.preferences.SwitchPreference
+        <SwitchPreference
             android:key="pick_up"
             android:defaultValue="false"
             android:title="@string/pick_up_title"
             android:summary="@string/pick_up_summary" />
 
-        <com.havoc.support.preferences.SwitchPreference
-            android:key="gesture_raise_to_wake"
+        <SwitchPreference
+            android:key="tilt_always"
             android:defaultValue="false"
-            android:title="@string/wake_gesture_title"
-            android:summary="@string/wake_gesture_summary"
-            android:dependency="pick_up" />
+            android:title="@string/always_enabled_title"
+            android:summary="@string/always_enabled_summary" />
 
-        <com.havoc.support.preferences.SwitchPreference
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="priximity_sensor"
+        android:title="@string/priximity_sensor_title" >
+
+        <SwitchPreference
             android:key="gesture_hand_wave"
             android:defaultValue="false"
             android:title="@string/hand_wave_gesture_title"
             android:summary="@string/hand_wave_gesture_summary" />
 
-        <com.havoc.support.preferences.SwitchPreference
+        <SwitchPreference
             android:key="gesture_pocket"
             android:defaultValue="false"
             android:title="@string/pocket_gesture_title"
             android:summary="@string/pocket_gesture_summary" />
+
+        <SwitchPreference
+            android:key="proximity_always"
+            android:defaultValue="false"
+            android:title="@string/always_enabled_title"
+            android:summary="@string/always_enabled_summary" />
+
     </PreferenceCategory>
 
-    <PreferenceCategory
-        android:key="brightness"
-        android:title="@string/brightness_title" >
-
-        <com.havoc.support.preferences.SystemSettingSeekBarPreference
-            android:key="ambient_doze_brightness"
-            android:title="@string/ambient_doze_brightness_title"
-            android:max="255"
-            settings:min="1"
-            android:persistent="false" />
-
-        <com.havoc.support.preferences.SystemSettingSeekBarPreference
-            android:key="ambient_pulse_brightness"
-            android:title="@string/ambient_pulse_brightness_title"
-            android:max="255"
-            settings:min="1"
-            android:persistent="false" />
-
-        <com.havoc.support.preferences.SystemSettingSwitchPreference
-            android:key="doze_brightness_force"
-            android:title="@string/doze_brightness_force_title"
-            android:summary="@string/doze_brightness_force_summary"
-            android:defaultValue="false" />
-    </PreferenceCategory>
 </PreferenceScreen>

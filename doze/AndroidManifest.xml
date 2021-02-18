@@ -1,37 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.custom.ambient.display"
+    package="org.lineageos.settings.doze"
+    android:versionCode="1"
+    android:versionName="1.0"
     android:sharedUserId="android.uid.system">
 
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS" />
+    <uses-permission android:name="lineageos.permission.MANAGE_REMOTE_PREFERENCES" />
 
     <protected-broadcast android:name="com.android.systemui.doze.pulse" />
 
     <uses-sdk
-        android:targetSdkVersion="27"/>
+        android:minSdkVersion="26"
+        android:targetSdkVersion="26"/>
 
     <application
-        android:label="CustomDoze"
-        android:persistent="true"
-        android:supportsRtl="true">
+        android:label="LGDoze"
+        android:persistent="true">
 
-        <receiver android:name="com.custom.ambient.display.BootCompletedReceiver">
+        <receiver android:name="org.lineageos.settings.doze.DozeReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="lineageos.intent.action.UPDATE_PREFERENCE" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </receiver>
 
-        <service android:name="com.custom.ambient.display.DozeService"
-                 android:permission="CustomDozeService">
+        <service android:name="org.lineageos.settings.doze.DozeService"
+                 android:permission="LGDozeService">
         </service>
 
         <activity
-            android:name=".DozeSettings"
+            android:name=".DozeSettingsActivity"
             android:label="@string/ambient_display_title"
-            android:theme="@style/AppTheme">
+            android:theme="@style/Theme.Main">
+            <intent-filter>
+                <action android:name="com.android.settings.action.IA_SETTINGS" />
+            </intent-filter>
+            <meta-data
+                android:name="com.android.settings.category"
+                android:value="com.android.settings.category.ia.display" />
         </activity>
+
     </application>
 </manifest>
