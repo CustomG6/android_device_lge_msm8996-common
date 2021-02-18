@@ -185,6 +185,7 @@ on boot
 
     #enable camera read sensors data
     setprop persist.camera.gyro.disable 0
+    setprop init.svc.console stopped
 
     # Allow access to sensors device attributes
     chown system system /sys/class/sensors/MPU6050-accel/enable
