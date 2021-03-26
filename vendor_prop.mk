@@ -65,8 +65,8 @@ PRODUCT_PRODUCT_PROPERTIES += \
 
 # CNE and DPM
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.cne.feature=1 \
-    persist.dpm.feature=0
+    persist.vendor.cne.feature=1 \
+    persist.vendor.dpm.feature=5
 
 # Dalvik VM
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -163,41 +163,39 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # RIL
 PRODUCT_PROPERTY_OVERRIDES += \
-    rild.libpath=/vendor/lib64/libril-qc-qmi-1.so \
-    vendor.rild.libpath=/vendor/lib64/libril-qc-qmi-1.so \
-    ril.subscription.types=NV,RUIM \
     DEVICE_PROVISIONED=1 \
     persist.data.qmi.adb_logmask=0 \
     persist.net.doxlat=true \
     persist.radio.apm_sim_not_pwdn=1 \
-    persist.radio.custom_ecc=1 \
-    persist.radio.force_on_dc=true \
-    persist.radio.rat_on=combine \
-    persist.radio.redir_party_num=1 \
-    persist.radio.sib16_support=1 \
-    ro.telephony.call_ring.multiple=false
+    persist.radio.csvt.enabled=false \
+    persist.radio.REVERSE_QMI=0 \
+    persist.radio.ROTATION_ENABLE=1 \
+    persist.rcs.supported=1 \
+    persist.sys.fflag.override.settings_network_and_internet_v2=true \
+    persist.vendor.radio.aosp_usr_pref_sel=true \
+    persist.vendor.radio.cs_srv_type=1 \
+    persist.vendor.radio.custom_ecc=1 \
+    persist.vendor.radio.data_ltd_sys_ind=1 \
+    persist.vendor.radio.facnotsup_as_nonw=1 \
+    persist.vendor.radio.force_on_dc=true \
+    persist.vendor.radio.ignore_dom_time=5 \
+    persist.vendor.radio.mt_sms_ack=20 \
+    persist.vendor.radio.rat_on=combine \
+    persist.vendor.radio.redir_party_num=1 \
+    persist.vendor.radio.sib16_support=1 \
+    ril.subscription.types=NV,RUIM \
+    rild.libpath=/vendor/lib64/libril-qc-qmi-1.so \
+    ro.telephony.call_ring.multiple=false \
+    ro.telephony.use_old_mnc_mcc_format=true
 
-# Radio - Data/RMNet
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.data.df.agg.dl_pkt=10 \
-    persist.data.df.agg.dl_size=4096 \
-    persist.data.df.dev_name=rmnet_usb0 \
-    persist.data.df.dl_mode=5 \
-    persist.data.df.iwlan_mux=9 \
-    persist.data.df.mux_count=8 \
-    persist.data.df.ul_mode=5 \
-    persist.data.iwlan.enable=true \
-    persist.data.qmi.adb_logmask=0 \
-    persist.data.wda.enable=true \
-    persist.rmnet.data.enable=true
-
-# Radio - IMS
+# IMS / VoLTE
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.dbg.volte_avail_ovr=1 \
     persist.dbg.vt_avail_ovr=1 \
-    persist.radio.NO_STAPA=1 \
+    persist.dbg.wfc_avail_ovr=1 \
+    persist.radio.VT_ENABLE=1 \
     persist.radio.VT_HYBRID_ENABLE=1 \
-    persist.radio.aosp_usr_pref_sel=true
+    persist.vendor.qti.telephony.vt_cam_interface=1
 
 # Sensors
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -213,10 +211,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.sensors.wul_thresh2=15 \
     persist.sensors.wul_delay=3000 \
     persist.sensors.onhand.en=0
-
-# Settings app
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.sys.fflag.override.settings_network_and_internet_v2=true
 
 # Tethering
 PRODUCT_PROPERTY_OVERRIDES += \

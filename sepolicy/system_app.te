@@ -16,3 +16,5 @@ allow system_app netd:binder call;
 allow system_app sysfs:file { write };
 allow system_app proc_pagetypeinfo:file { read open getattr };
 allow system_app sysfs_zram:file { read open getattr }; 
+
+allow system_app hal_imsrcsd_hwservice:hwservice_manager find;
