@@ -2,60 +2,6 @@
 product/lib64/libaptX_encoder.so|df1c89d7af1bb35808d5fe3496b04ba066c10cbc
 product/lib64/libaptXHD_encoder.so|e13fa70c97caaa24d061678bdee608eb8850a69e
 
-# Camera postprocessing
-vendor/lib/libchromaflash.so
-vendor/lib/liboptizoom.so
-vendor/lib/libseemore.so
-vendor/lib/libtrueportrait.so
-vendor/lib/libubifocus.so
-vendor/lib64/libseemore.so
-
-# Camera postprocessing - mmcamera
-vendor/lib/libmmcamera_chromaflash_lib.so
-vendor/lib/libmmcamera_llvd.so
-vendor/lib/libmmcamera_optizoom_lib.so
-vendor/lib/libmmcamera_quadracfa.so
-vendor/lib/libremosaic_daemon.so
-vendor/lib/libmmcamera_stillmore_lib.so
-vendor/lib/libmmcamera_trueportrait_lib.so
-vendor/lib/libmmcamera_ubifocus_lib.so
-vendor/lib/libts_detected_face_hal.so
-vendor/lib/libts_face_beautify_hal.so
-vendor/lib64/libts_detected_face_hal.so
-vendor/lib64/libts_face_beautify_hal.so
-
-# Camera firmware
-etc/camera/selfie/1_selfie.dat:vendor/etc/camera/selfie/1_selfie.dat
-etc/camera/selfie/2_selfie.dat:vendor/etc/camera/selfie/2_selfie.dat
-etc/camera/selfie/3_selfie.dat:vendor/etc/camera/selfie/3_selfie.dat
-etc/camera/selfie/4_selfie.dat:vendor/etc/camera/selfie/4_selfie.dat
-etc/camera/selfie/5_selfie.dat:vendor/etc/camera/selfie/5_selfie.dat
-etc/camera/selfie/6_selfie.dat:vendor/etc/camera/selfie/6_selfie.dat
-etc/camera/selfie/7_selfie.dat:vendor/etc/camera/selfie/7_selfie.dat
-etc/camera/selfie/8_selfie.dat:vendor/etc/camera/selfie/8_selfie.dat
-etc/camera/selfie/9_selfie.dat:vendor/etc/camera/selfie/9_selfie.dat
-etc/camera/film/0_film.dat:vendor/etc/camera/film/0_film.dat
-etc/camera/film/1_film.dat:vendor/etc/camera/film/1_film.dat
-etc/camera/film/2_film.dat:vendor/etc/camera/film/2_film.dat
-etc/camera/film/3_film.dat:vendor/etc/camera/film/3_film.dat
-etc/camera/film/4_film.dat:vendor/etc/camera/film/4_film.dat
-etc/camera/film/5_film.dat:vendor/etc/camera/film/5_film.dat
-etc/camera/film/6_film.dat:vendor/etc/camera/film/6_film.dat
-etc/camera/film/7_film.dat:vendor/etc/camera/film/7_film.dat
-etc/camera/film/8_film.dat:vendor/etc/camera/film/8_film.dat
-etc/camera/film/9_film.dat:vendor/etc/camera/film/9_film.dat
-etc/camera/film/10_film.dat:vendor/etc/camera/film/10_film.dat
-etc/firmware/cpp_firmware_v1_1_1.fw:vendor/firmware/cpp_firmware_v1_1_1.fw
-etc/firmware/cpp_firmware_v1_1_6.fw:vendor/firmware/cpp_firmware_v1_1_6.fw
-etc/firmware/cpp_firmware_v1_2_0.fw:vendor/firmware/cpp_firmware_v1_2_0.fw
-etc/firmware/cpp_firmware_v1_4_0.fw:vendor/firmware/cpp_firmware_v1_4_0.fw
-etc/firmware/cpp_firmware_v1_5_0.fw:vendor/firmware/cpp_firmware_v1_5_0.fw
-etc/firmware/cpp_firmware_v1_5_2.fw:vendor/firmware/cpp_firmware_v1_5_2.fw
-etc/firmware/cpp_firmware_v1_6_0.fw:vendor/firmware/cpp_firmware_v1_6_0.fw
-etc/firmware/cpp_firmware_v1_8_0.fw:vendor/firmware/cpp_firmware_v1_8_0.fw
-etc/firmware/cpp_firmware_v1_10_0.fw:vendor/firmware/cpp_firmware_v1_10_0.fw
-etc/firmware/cpp_firmware_v1_12_0.fw:vendor/firmware/cpp_firmware_v1_12_0.fw
-
 # Misc firmware
 etc/firmware/leia_pfp_470.fw:vendor/firmware/leia_pfp_470.fw
 etc/firmware/leia_pm4_470.fw:vendor/firmware/leia_pm4_470.fw
@@ -63,6 +9,6 @@ etc/firmware/leia_pm4_470.fw:vendor/firmware/leia_pm4_470.fw
 # NFC firmware
 vendor/firmware/libpn548ad_fw.so:vendor/lib/libpn548ad_fw.so
 
-# Sensors
+# Sensors - from V30B
 vendor/lib/libsensor_lge_cal.so
 vendor/lib64/libsensor_lge_cal.so

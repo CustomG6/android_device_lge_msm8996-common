@@ -23,9 +23,6 @@ fi
 
 function blob_fixup() {
     case "${1}" in
-    vendor/lib/hw/camera.msm8996.so)
-        sed -i "s/service.bootanim.exit/service.bootanim.zzzz/g" "${2}"
-        ;;
 
     vendor/lib64/libwvhidl.so)
         "${PATCHELF}" --replace-needed "libprotobuf-cpp-lite.so" "libprotobuf-cpp-lite-v29.so" "${2}"

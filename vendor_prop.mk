@@ -50,12 +50,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.camera.notify_nfc=1 \
-    vidc.debug.perf.mode=2 \
-    vidc.enc.dcvs.extra-buff-count=2 \
-    persist.audio.camcorder.stereo=true \
-    persist.camera.preview.ubwc=0 \
-    persist.camera.video.ubwc=0 \
+    vendor.lge.faceprint.inform.camera=0 \
+    vendor.lge.faceprint.use.camera=0 \
     persist.vendor.camera.expose.aux=1
 
 # Charger

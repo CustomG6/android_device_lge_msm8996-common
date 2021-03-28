@@ -120,33 +120,29 @@ on post-fs-data
     rm /data/system/perfd/default_values
     chmod 2770 /data/system/perfd
 
-    # Add a cpuset for the camera daemon
-    # We want all cores for camera
-    mkdir /dev/cpuset/camera-daemon
-    write /dev/cpuset/camera-daemon/cpus 0-3
-    write /dev/cpuset/camera-daemon/mems 0
-    chown cameraserver cameraserver /dev/cpuset/camera-daemon
-    chown cameraserver cameraserver /dev/cpuset/camera-daemon/tasks
-    chmod 0660 /dev/cpuset/camera-daemon/tasks
+    # Create camera dir for EEPROM data
+    mkdir mnt/vendor/persist-lg/camera 0771 cameraserver radio
 
-    # Create folder for mm-qcamera-daemon
+    # Create folder of camera
     mkdir /data/vendor/camera 0770 camera camera
 
-#start camera server as daemon
+   # Add a cpuset for the camera daemon
+   # We want all cores for camera
+   mkdir /dev/cpuset/camera-daemon
+   write /dev/cpuset/camera-daemon/cpus 0-3
+   write /dev/cpuset/camera-daemon/mems 0
+   chown cameraserver cameraserver /dev/cpuset/camera-daemon
+   chown cameraserver cameraserver /dev/cpuset/camera-daemon/tasks
+   chmod 0660 /dev/cpuset/camera-daemon/tasks
+
+   # Create folder for mm-qcamera-daemon
+   mkdir /data/vendor/camera 0770 camera camera
+
+   # Start camera server as daemon
 service qcamerasvr /system/vendor/bin/mm-qcamera-daemon
     class main
     user camera
     group camera system inet input graphics
-
-service qfp-daemon /system/bin/qfp-daemon
-    class late_start
-    user system
-    group system drmrpc diag input
-
-service qvop-daemon /system/bin/qvop-daemon
-    class late_start
-    user system
-    group system drmrpc
 
 # Start up peripheral manager
 service vendor.per_mgr /vendor/bin/pm-service
